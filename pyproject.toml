@@ -91,7 +91,7 @@ where = ["."]
 namespaces = false
 
 [tool.setuptools.package-data]
-tools = ["tools/**/*"]
+sweagent = ["tools/**/*"]
 
 
 [project.urls]
