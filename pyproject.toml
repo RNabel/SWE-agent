@@ -91,7 +91,7 @@ where = ["."]
 namespaces = false
 
 [tool.setuptools.package-data]
-my_package = ["tools/**/*"]
+tools = ["tools/**/*"]
 
 
 [project.urls]
