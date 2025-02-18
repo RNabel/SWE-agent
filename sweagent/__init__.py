@@ -36,13 +36,19 @@ if sys.version_info < (3, 11):
 assert PACKAGE_DIR.is_dir(), PACKAGE_DIR
 REPO_ROOT = PACKAGE_DIR.parent
 assert REPO_ROOT.is_dir(), REPO_ROOT
-CONFIG_DIR = importlib.resources.path("sweagent", "config")
+with importlib.resources.path("sweagent", "config") as config_dir:
+    CONFIG_DIR = config_dir
+assert CONFIG_DIR is not None
 assert CONFIG_DIR.is_dir(), CONFIG_DIR
 
-TOOLS_DIR = importlib.resources.path("sweagent", "tools")
+with importlib.resources.path("sweagent", "tools") as tools_dir:
+    TOOLS_DIR = tools_dir
+assert TOOLS_DIR is not None
 assert TOOLS_DIR.is_dir(), TOOLS_DIR
 
-TRAJECTORY_DIR = importlib.resources.path("sweagent", "trajectories")
+with importlib.resources.path("sweagent", "trajectories") as trajectory_dir:
+    TRAJECTORY_DIR = trajectory_dir
+assert TRAJECTORY_DIR is not None
 assert TRAJECTORY_DIR.is_dir(), TRAJECTORY_DIR
 
 
