@@ -5,6 +5,7 @@ from functools import partial
 
 from git import Repo
 from packaging import version
+import importlib.resources
 
 __version__ = "1.0.0"
 
@@ -35,13 +36,13 @@ if sys.version_info < (3, 11):
 assert PACKAGE_DIR.is_dir(), PACKAGE_DIR
 REPO_ROOT = PACKAGE_DIR.parent
 assert REPO_ROOT.is_dir(), REPO_ROOT
-CONFIG_DIR = PACKAGE_DIR.parent / "config"
+CONFIG_DIR = importlib.resources.path("sweagent", "config")
 assert CONFIG_DIR.is_dir(), CONFIG_DIR
 
-TOOLS_DIR = PACKAGE_DIR.parent / "tools"
+TOOLS_DIR = importlib.resources.path("sweagent", "tools")
 assert TOOLS_DIR.is_dir(), TOOLS_DIR
 
-TRAJECTORY_DIR = PACKAGE_DIR.parent / "trajectories"
+TRAJECTORY_DIR = importlib.resources.path("sweagent", "trajectories")
 assert TRAJECTORY_DIR.is_dir(), TRAJECTORY_DIR
 
 
