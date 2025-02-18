@@ -90,6 +90,10 @@ version = {attr = "sweagent.__version__"}
 where = ["."]
 namespaces = false
 
+[tool.setuptools.package-data]
+my_package = ["tools/**/*"]
+
+
 [project.urls]
 "Homepage" = "https://swe-agent.com"
 "Bug Reports" = "http://github.com/SWE-agent/SWE-agent/issues"
