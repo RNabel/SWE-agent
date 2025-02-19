@@ -2027,7 +2027,7 @@ wheels = [
 [[package]]
 name = "swe-rex"
 version = "1.1.1"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/SWE-agent/SWE-ReX.git#bb26fe047562f9753cfaa2ee787ecb3f7eea7407" }
 dependencies = [
     { name = "bashlex" },
     { name = "fastapi" },
@@ -2037,10 +2037,6 @@ dependencies = [
     { name = "requests" },
     { name = "rich" },
     { name = "uvicorn" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/42/b4/74e9fbe59b2f04b551646ff1e44441f01ba4082568a6a1b7b539ac624e86/swe_rex-1.1.1.tar.gz", hash = "sha256:cdb13ebce8f6e1fdb21df0fe305d5f9efbcde04c4107a0e44a357a279c409e66", size = 38241 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/0e/76/a21a840b775c4ab2ab40e90c7edcfa2e4995e607b21016492de4bff3fca8/swe_rex-1.1.1-py3-none-any.whl", hash = "sha256:04bc5d14b4517696700bb21db6187d6aacb9cc626addfa3e2bed94dd428c5ca7", size = 43155 },
 ]
 
 [[package]]
@@ -2114,7 +2110,7 @@ requires-dist = [
     { name = "rich-argparse" },
     { name = "ruamel-yaml" },
     { name = "simple-parsing" },
-    { name = "swe-rex", specifier = ">=1.0.3" },
+    { name = "swe-rex", git = "https://github.com/SWE-agent/SWE-ReX.git" },
     { name = "tabulate" },
     { name = "tenacity" },
     { name = "textual", specifier = "==1.0.0" },
