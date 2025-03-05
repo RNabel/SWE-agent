@@ -57,9 +57,9 @@ dependencies = [
     "litellm",
     "GitPython",
     "ghapi",
-    "swe-rex>=1.2.0",
     "tabulate",
     "textual>=1.0.0,<2.0.0",
+    "swe-rex",
 ]
 
 [project.scripts]
@@ -88,7 +88,11 @@ version = {attr = "sweagent.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
-namespaces = false
+include = ["sweagent"]
+
+[tool.setuptools.package-data]
+sweagent = ["sweagent/**/*", "tools/**/*", "config/**/*", "trajectories/**/*"]
+
 
 [project.urls]
 "Homepage" = "https://swe-agent.com"
@@ -257,6 +261,10 @@ ACI = "ACI"
 [tool.typos.default.extend-words]
 # Don't correct the surname "Teh"
 aci = "aci"
+
+[tool.uv.sources]
+# Pin to commit which allows remove_container toggle in DockerDeployment.
+swe-rex = { git = "https://github.com/SWE-agent/SWE-ReX.git#16d3fa3b43eb3d9c4917144db77b22f8ec4440a6" }
 
 [tool.ruff.lint.isort]
 # required-imports = ["from __future__ import annotations"]

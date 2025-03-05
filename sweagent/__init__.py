@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib.resources
 import sys
 from functools import partial
 from logging import WARNING, getLogger
@@ -24,7 +25,7 @@ getLogger("datasets").setLevel(WARNING)
 getLogger("numexpr.utils").setLevel(WARNING)
 getLogger("LiteLLM").setLevel(WARNING)
 
-PACKAGE_DIR = Path(__file__).resolve().parent
+PACKAGE_DIR = Path(__file__).resolve().cwd()
 
 if sys.version_info < PYTHON_MINIMUM_VERSION:
     msg = (
@@ -36,13 +37,19 @@ if sys.version_info < PYTHON_MINIMUM_VERSION:
 assert PACKAGE_DIR.is_dir(), PACKAGE_DIR
 REPO_ROOT = PACKAGE_DIR.parent
 assert REPO_ROOT.is_dir(), REPO_ROOT
-CONFIG_DIR = PACKAGE_DIR.parent / "config"
+with importlib.resources.path("sweagent", "config") as config_dir:
+    CONFIG_DIR = config_dir
+assert CONFIG_DIR is not None
 assert CONFIG_DIR.is_dir(), CONFIG_DIR
 
-TOOLS_DIR = PACKAGE_DIR.parent / "tools"
+with importlib.resources.path("sweagent", "tools") as tools_dir:
+    TOOLS_DIR = tools_dir
+assert TOOLS_DIR is not None
 assert TOOLS_DIR.is_dir(), TOOLS_DIR
 
-TRAJECTORY_DIR = PACKAGE_DIR.parent / "trajectories"
+with importlib.resources.path("sweagent", "trajectories") as trajectory_dir:
+    TRAJECTORY_DIR = trajectory_dir
+assert TRAJECTORY_DIR is not None
 assert TRAJECTORY_DIR.is_dir(), TRAJECTORY_DIR
 
 
